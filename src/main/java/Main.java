@@ -3,9 +3,11 @@ import java.security.NoSuchAlgorithmException;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        String data = "What's up";
-        String algorithm = "SHA-256";
-        generateHash(data, algorithm);
+        String data = "What's up1";
+        String algorithm1 = "SHA-256";
+        String algorithm2 = "MD5";
+        System.out.println("SHA-256 hash: " + generateHash(data, algorithm1));
+        System.out.println("MD5 hash: " + generateHash(data, algorithm2));
     }
 
     private static String generateHash(String data, String algorithm) throws NoSuchAlgorithmException {
