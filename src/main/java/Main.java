@@ -29,7 +29,7 @@ public class Main {
 
     private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
-    public static String bytesToStringHex(byte[] bytes) {
+    private static String bytesToStringHex(byte[] bytes) {
         char[] hexChars = new char[bytes.length * 2];
         for (int i = 0; i < bytes.length; i++) {
             int v = bytes[i] & 0xFF;
