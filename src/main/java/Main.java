@@ -1,18 +1,28 @@
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 
 public class Main {
     public static void main(String[] args) throws Exception {
         String data = "What's up1";
         String algorithm1 = "SHA-256";
         String algorithm2 = "MD5";
-        System.out.println("SHA-256 hash: " + generateHash(data, algorithm1));
-        System.out.println("MD5 hash: " + generateHash(data, algorithm2));
+        byte[] salt = createSalt();
+        System.out.println("SHA-256 hash: " + generateHash(data, algorithm1, salt));
+        System.out.println("MD5 hash: " + generateHash(data, algorithm2, salt));
     }
 
-    private static String generateHash(String data, String algorithm) throws NoSuchAlgorithmException {
+    private static byte[] createSalt() {
+        byte[] bytes = new byte[20];
+        SecureRandom random = new SecureRandom();
+        random.nextBytes(bytes);
+        return bytes;
+    }
+
+    private static String generateHash(String data, String algorithm, byte[] salt) throws NoSuchAlgorithmException {
         MessageDigest digest = MessageDigest.getInstance(algorithm);
         digest.reset();
+        digest.update(salt);
         byte[] hash = digest.digest(data.getBytes());
         return bytesToStringHex(hash);
     }
