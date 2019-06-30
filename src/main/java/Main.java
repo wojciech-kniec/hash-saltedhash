@@ -7,9 +7,13 @@ public class Main {
         String data = "What's up1";
         String algorithm1 = "SHA-256";
         String algorithm2 = "MD5";
+        String algorithm3 = "SHA-512";
+        String algorithm4 = "SHA-1";
         byte[] salt = createSalt();
         System.out.println("SHA-256 hash: " + generateHash(data, algorithm1, salt));
         System.out.println("MD5 hash: " + generateHash(data, algorithm2, salt));
+        System.out.println("SHA-512 hash: " + generateHash(data, algorithm3, salt));
+        System.out.println("SHA-1 hash: " + generateHash(data, algorithm4, salt));
     }
 
     private static byte[] createSalt() {
