@@ -6,7 +6,6 @@ public class EncryptDecrypt {
             temp *= 2;
             System.out.print(temp);
         }
-
     }
 
     public static void decrypt(String pass) {
@@ -16,7 +15,6 @@ public class EncryptDecrypt {
             temp /= 2;
             System.out.print(temp);
         }
-
     }
 
     public static void main(String[] args) {
