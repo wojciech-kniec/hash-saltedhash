@@ -42,5 +42,4 @@ public class Main {
         }
         return new String(hexChars);
     }
-
 }
